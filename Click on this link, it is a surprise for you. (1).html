@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Happy Teddy Day ❤️</title>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Segoe UI', sans-serif;
+        background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+        color: #fff;
+        text-align: center;
+        overflow-x: hidden;
+    }
+
+    .page {
+        display: none;
+        min-height: 100vh;
+        padding: 40px 20px;
+        animation: fadeIn 1.2s ease;
+    }
+
+    .page.active { display: block; }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(30px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    .card, .letter-box {
+        background: rgba(255,255,255,0.25);
+        max-width: 650px;
+        margin: 60px auto;
+        padding: 40px;
+        border-radius: 20px;
+        box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+    }
+
+    .card {
+        max-width: 500px;
+        animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+        0% { transform: translateY(0); }
+        50% { transform: translateY(-10px); }
+        100% { transform: translateY(0); }
+    }
+
+    h1 { font-size: 2.4rem; }
+
+    .name-top {
+        font-size: 1.6rem;
+        font-weight: bold;
+        color: #ffe6eb;
+        margin-bottom: 20px;
+        animation: pulse 1.4s infinite;
+    }
+
+    @keyframes pulse {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.1); }
+        100% { transform: scale(1); }
+    }
+
+    p {
+        font-size: 1.15rem;
+        line-height: 1.7;
+    }
+
+    .teddy {
+        font-size: 80px;
+        margin: 20px 0;
+        animation: teddyBounce 1.5s infinite;
+    }
+
+    @keyframes teddyBounce {
+        0%,100% { transform: scale(1); }
+        50% { transform: scale(1.1); }
+    }
+
+    button {
+        background: #ff4d6d;
+        border: none;
+        padding: 12px 30px;
+        font-size: 1rem;
+        border-radius: 30px;
+        color: #fff;
+        cursor: pointer;
+        margin-top: 20px;
+        transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    button:hover {
+        transform: scale(1.08);
+        box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    }
+
+    .shayari {
+        margin-top: 30px;
+        font-style: italic;
+        font-size: 1.2rem;
+        color: #fff0f5;
+    }
+
+    .sign {
+        text-align: right;
+        margin-top: 30px;
+        font-weight: bold;
+    }
+
+    .name { color: #ffe6eb; }
+
+    .heart {
+        font-size: 50px;
+        margin-top: 20px;
+        animation: pulse 1.2s infinite;
+    }
+
+    /* POPUP */
+    .popup {
+        position: fixed;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        background: rgba(0,0,0,0.6);
+        display: none;
+        align-items: center;
+        justify-content: center;
+        z-index: 999;
+    }
+
+    .popup-content {
+        background: linear-gradient(135deg, #ff758c, #ff7eb3);
+        padding: 35px;
+        border-radius: 20px;
+        max-width: 400px;
+        color: #fff;
+        animation: fadeIn 1s ease;
+    }
+</style>
+</head>
+<body>
+
+<!-- Music -->
+<audio id="bgMusic" loop>
+    <source src="https://www.bensound.com/bensound-music/bensound-love.mp3" type="audio/mpeg">
+</audio>
+
+<!-- PAGE 1 -->
+<div class="page active" id="page1">
+    <div class="card">
+        <h1>Happy Teddy Day ❤️</h1>
+        <div class="teddy">🧸</div>
+        <p>
+            Ye teddy meri feelings ka symbol hai,<br>
+            jo main sirf tumhare liye laaya hoon 🤍
+        </p>
+        <button onclick="showLove()">Click for a Surprise 💌</button>
+    </div>
+</div>
+
+<!-- PAGE 2 -->
+<div class="page" id="page2">
+    <div class="letter-box">
+        <h1>My Love ❤️</h1>
+        <div class="name-top">Rashi</div>
+
+        <p>
+            Tum meri zindagi ka wo hissa ho  
+            jiske bina sab kuch adhoora lagta hai.
+        </p>
+
+        <p>
+            Tumhari ek muskaan mere har dard ko  
+            pal bhar mein pyaar mein badal deti hai.
+        </p>
+
+        <p>
+            Is Teddy Day par main tumhe sirf teddy nahi,  
+            apna dil, apni feelings aur apna future gift kar raha hoon 🧸❤️
+        </p>
+
+        <div class="shayari">
+            “Tumhari ek muskaan hi kaafi hai,<br>
+            meri har udaasi mitaane ke liye,<br>
+            tum meri wo aadat ho Rashi,<br>
+            jo chhoot jaaye to saans ruk jaaye.”
+        </div>
+
+        <div class="sign">
+            Forever Yours ❤️<br>
+            <div class="name">Inzu</div>
+        </div>
+
+        <div class="heart">💖🧸💖</div>
+    </div>
+</div>
+
+<!-- POPUP -->
+<div class="popup" id="popup">
+    <div class="popup-content">
+        <h2>💝 Surprise 💝</h2>
+        <p>
+            Rashi, will you be mine forever? 🥺❤️<br>
+            Ye teddy, ye dil aur ye zindagi —  
+            sab tumhare naam 💍
+        </p>
+        <button onclick="closePopup()">Always ❤️</button>
+    </div>
+</div>
+
+<script>
+    function showLove() {
+        document.getElementById("page1").classList.remove("active");
+        document.getElementById("page2").classList.add("active");
+        document.getElementById("bgMusic").play();
+
+        setTimeout(() => {
+            document.getElementById("popup").style.display = "flex";
+        }, 3500);
+    }
+
+    function closePopup() {
+        document.getElementById("popup").style.display = "none";
+    }
+</script>
+
+</body>
+</html>
